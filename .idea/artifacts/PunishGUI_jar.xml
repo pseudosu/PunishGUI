@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PunishGUI:jar">
+    <output-path>D:/BungeeCord/05_SURVIVAL/plugins</output-path>
+    <root id="archive" name="PunishGUI.jar">
+      <element id="module-output" name="PunishGUI" />
+    </root>
+  </artifact>
+</component>
