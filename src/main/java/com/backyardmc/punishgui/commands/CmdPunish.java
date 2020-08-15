@@ -1,5 +1,6 @@
 package com.backyardmc.punishgui.commands;
 
+import com.backyardmc.punishgui.BYPunishment;
 import com.backyardmc.punishgui.gui.GUIHandler;
 import com.backyardmc.punishgui.network.PunishmentManager;
 import com.backyardmc.punishgui.util.Util;
@@ -39,6 +40,7 @@ public class CmdPunish implements CommandExecutor {
                     Util.sendMessage("&cError: Invalid Punishment ID: " + args[0], commandSender);
                     return false;
                 }
+                BYPunishment.frozenPlayers.remove(target.getUniqueId());
                 PunishmentManager.punish(Objects.requireNonNull(Util.getPunishmentFromID(punishID)), target, commandSender);
                 return true;
             } catch (NumberFormatException e) {
