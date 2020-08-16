@@ -28,23 +28,23 @@ public class CmdPunish implements CommandExecutor {
                 GUIHandler.openGUI(sender);
                 return false;
             }
-            OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
+            OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
             int punishID;
             if (!target.hasPlayedBefore() && !target.isOnline()) {
-                Util.sendMessage("&cError: Invalid Player: " + args[1], commandSender);
+                Util.sendMessage("&cError: Invalid Player: " + args[0], commandSender);
                 return false;
             }
             try {
-                punishID = Integer.parseInt(args[0]);
+                punishID = Integer.parseInt(args[1]);
                 if (!Util.getAllPunishmentIDs().contains(punishID + "")) {
-                    Util.sendMessage("&cError: Invalid Punishment ID: " + args[0], commandSender);
+                    Util.sendMessage("&cError: Invalid Punishment ID: " + args[1], commandSender);
                     return false;
                 }
                 BYPunishment.frozenPlayers.remove(target.getUniqueId());
                 PunishmentManager.punish(Objects.requireNonNull(Util.getPunishmentFromID(punishID)), target, commandSender);
                 return true;
             } catch (NumberFormatException e) {
-                Util.sendMessage("&cError: Invalid Punishment ID: " + args[0], commandSender);
+                Util.sendMessage("&cError: Invalid Punishment ID: " + args[1], commandSender);
                 e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();

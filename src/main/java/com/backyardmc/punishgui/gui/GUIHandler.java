@@ -32,7 +32,7 @@ public class GUIHandler {
                 String realName = "&7" + p.getName();
                 String nickName = "&7Display Name: &6" + p.getDisplayName();
 
-                ItemStack playerHead = new ItemStack(Material.SKULL_ITEM, 1, (byte)3);
+                ItemStack playerHead = new ItemStack(Material.SKULL_ITEM, 1, (byte) 3);
                 SkullMeta skullMeta = (SkullMeta) playerHead.getItemMeta();
                 skullMeta.setOwner(p.getName());
                 skullMeta.setDisplayName(Util.colorText(realName));
@@ -54,7 +54,7 @@ public class GUIHandler {
                         punishmentButton.setListener(eventPunishment -> {
                             event.setCancelled(true);
                             String playerToPunish = ChatColor.stripColor(Objects.requireNonNull(event.getCurrentItem()).getItemMeta().getDisplayName());
-                            ((Player) sender).performCommand("punish " + punishment.getId() + " " + playerToPunish);
+                            ((Player) sender).performCommand("punish " + playerToPunish + " " + punishment.getId());
                             ((Player) sender).closeInventory();
                         });
                         punishmentListMenu.addButton(punishmentButton);

@@ -13,15 +13,16 @@ import java.util.List;
 public class PunishTabCompleter implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+
         if (command.getName().equalsIgnoreCase("punish") && args.length == 0) {
+            return Util.getAllPunishmentIDs();
+        }
+        if (command.getName().equalsIgnoreCase("punish") && args.length == 1) {
             List<String> playerNames = new ArrayList<>();
             for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                 playerNames.add(p.getName());
             }
             return playerNames;
-        }
-        if (command.getName().equalsIgnoreCase("punish") && args.length == 1) {
-            return Util.getAllPunishmentIDs();
         }
         return null;
     }
