@@ -1,10 +1,7 @@
 package com.backyardmc.punishgui;
 
 import com.backyardmc.punishgui.commands.*;
-import com.backyardmc.punishgui.listeners.OnChat;
-import com.backyardmc.punishgui.listeners.OnCommand;
-import com.backyardmc.punishgui.listeners.OnJoin;
-import com.backyardmc.punishgui.listeners.OnMove;
+import com.backyardmc.punishgui.listeners.*;
 import com.backyardmc.punishgui.network.Network;
 import com.backyardmc.punishgui.util.Config;
 import com.backyardmc.punishgui.util.Punishment;
@@ -50,6 +47,7 @@ public final class BYPunishment extends JavaPlugin {
         pm.registerEvents(new OnChat(), this);
         pm.registerEvents(new OnCommand(), this);
         pm.registerEvents(new OnMove(), this);
+        pm.registerEvents(new OnDamage(), this);
 
         // Plugin startup logic
         config = new Config(this);

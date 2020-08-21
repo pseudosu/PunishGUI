@@ -27,10 +27,6 @@ public class OnCommand implements Listener {
         }
         if (BYPunishment.frozenPlayers.contains(event.getPlayer().getUniqueId())) {
             for (String command : blockedFreezeCommands) {
-                if (command.equalsIgnoreCase("all")) {
-                    event.setCancelled(true);
-                    return;
-                }
                 event.setCancelled(true);
                 return;
             }

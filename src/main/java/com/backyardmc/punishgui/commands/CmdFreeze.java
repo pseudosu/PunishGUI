@@ -37,7 +37,7 @@ public class CmdFreeze implements CommandExecutor {
                 Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "title " + p.getName() + " subtitle {\"text\": \"WARNING: YOU HAVE BEEN FROZEN BY A STAFF MEMBER. DO NOT LOG OFF OR YOU WILL BE BANNED.\", \"bold\": \"true\", \"color\": \"red\" }");
                 Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "title " + p.getName() + " title {\"text\":\" \", \"bold\":\"false\", \"color\":\"white\"}");
                 for (int i = 0; i < 20; i++) {
-                    p.sendMessage(Util.colorText("&cWARNING: YOU HAVE BEEN FROZEN BY A STAFF MEMBER. DO NOT LOG OFF OR YOU WILL BE BANNED."));
+                    p.sendMessage(Util.colorText("&cWARNING: YOU HAVE BEEN FROZEN BY A STAFF MEMBER. DO NOT LOG OFF OR YOU &lWILL&r&c BE BANNED."));
                 }
                 BYPunishment.frozenPlayers.add(p.getUniqueId());
             }
