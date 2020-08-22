@@ -99,6 +99,7 @@ public final class BYPunishment extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        api.shutdown();
         api = null;
         network.closeConnection();
     }
