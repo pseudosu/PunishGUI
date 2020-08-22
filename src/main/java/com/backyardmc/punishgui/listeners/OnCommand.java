@@ -27,7 +27,8 @@ public class OnCommand implements Listener {
         }
         if (BYPunishment.frozenPlayers.contains(event.getPlayer().getUniqueId())) {
             for (String command : blockedFreezeCommands) {
-                event.setCancelled(true);
+                if (args[0].equalsIgnoreCase("/" + command))
+                    event.setCancelled(true);
                 return;
             }
         }
