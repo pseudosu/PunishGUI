@@ -19,39 +19,35 @@ public class Network {
         url = "jdbc:mysql://" + BYPunishment.getConfigManager().getMYSQL_HOST() + ":3306/";
     }
 
-    public void init() {
-        try {
-            activateConnection();
-            Statement s = c.createStatement();
-            String userTableQuery =
-                    "CREATE TABLE IF NOT EXISTS byp_userdata" +
-                            "(id int not null auto_increment," +
-                            " punishment_id int(11)," +
-                            " uuid varchar(255)," +
-                            " is_active boolean," +
-                            " warning_level int(11)," +
-                            " end_date varchar(255)," +
-                            "" +
-                            " primary key (id))";
-            String staffDataTableQuery =
-                    "CREATE TABLE IF NOT EXISTS byp_staffdata" +
-                            "(id int not null auto_increment," +
-                            "punishment_id int(11)," +
-                            "staff_uuid varchar(255)," +
-                            "punished_uuid varchar(255)," +
-                            "date bigint(19)," +
-                            "serverName varchar(255)," +
-                            "primary key (id))";
-            s.executeUpdate(userTableQuery);
-            s.executeUpdate(staffDataTableQuery);
-            closeConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public void init() throws SQLException {
+        activateConnection();
+        Statement s = c.createStatement();
+        String userTableQuery =
+                "CREATE TABLE IF NOT EXISTS byp_userdata" +
+                        "(id int not null auto_increment," +
+                        " punishment_id int(11)," +
+                        " uuid varchar(255)," +
+                        " is_active boolean," +
+                        " warning_level int(11)," +
+                        " end_date varchar(255)," +
+                        "" +
+                        " primary key (id))";
+        String staffDataTableQuery =
+                "CREATE TABLE IF NOT EXISTS byp_staffdata" +
+                        "(id int not null auto_increment," +
+                        "punishment_id int(11)," +
+                        "staff_uuid varchar(255)," +
+                        "punished_uuid varchar(255)," +
+                        "date bigint(19)," +
+                        "serverName varchar(255)," +
+                        "primary key (id))";
+        s.executeUpdate(userTableQuery);
+        s.executeUpdate(staffDataTableQuery);
+        closeConnection();
     }
 
+
     /**
-     *
      * @return mysql connection instance
      */
     public Connection getConnection() {
@@ -75,7 +71,6 @@ public class Network {
     }
 
     /**
-     *
      * @param query query to execute
      * @return returns the resultset
      */
@@ -90,7 +85,6 @@ public class Network {
     }
 
     /**
-     *
      * @param query query to execute
      */
     public void executeUpdate(String query) {

@@ -14,6 +14,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -55,7 +56,11 @@ public final class BYPunishment extends JavaPlugin {
         config.init();
 
         network = new Network();
-        network.init();
+        try {
+            network.init();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         List<String> punishments = getConfig().getStringList("configuration.settings.punishments");
 
         for (String s : punishments) {
