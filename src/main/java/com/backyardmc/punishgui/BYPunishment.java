@@ -41,6 +41,7 @@ public final class BYPunishment extends JavaPlugin {
         Objects.requireNonNull(getCommand("pardon")).setExecutor(new CmdPardon());
         Objects.requireNonNull(getCommand("pardon")).setTabCompleter(new PardonTabCompleter());
         Objects.requireNonNull(getCommand("freeze")).setExecutor(new CmdFreeze());
+        Objects.requireNonNull(getCommand("byreload")).setExecutor(new CmdReload(this));
 
         pm.registerEvents(new InventoryListenerGUI(), this);
         pm.registerEvents(new OnJoin(), this);

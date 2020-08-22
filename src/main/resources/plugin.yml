@@ -22,3 +22,6 @@ commands:
   freeze:
     description: Freezes a player
     aliases: [pfreeze]
+  byreload:
+    description: Reloads the config
+    aliases: [breload, preload]
